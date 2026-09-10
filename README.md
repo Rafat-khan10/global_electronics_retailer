@@ -1,24 +1,44 @@
-# 🛒 Global Electronics Retailer — Sales & Customer Analysis
 
+# 🖥️ Global Electronics Retailer — Sales & Customer Analysis
+ 
+> **Tools:** PostgreSQL · Power BI · Python (Pandas)  
+> **Dataset:** 62,884 sales records · 5 tables · 2016–2021
+ 
 ---
-
+ 
+## 📋 Table of Contents
+ 
+- [Project Overview](#-project-overview)
+- [Business Problem](#-business-problem)
+- [Key Business Questions Explored](#-key-business-questions-explored)
+- [Dataset](#-dataset)
+- [Tools Used](#️-tools-used)
+- [Screenshots](#-screenshots)
+- [Key Findings](#-key-findings)
+- [Business Recommendations](#-business-recommendations)
+- [Project Structure](#-project-structure)
+- [How to Run](#️-how-to-run)
+- [Connect With Me](#-connect-with-me)
+---
+ 
 ## 📌 Project Overview
-
+ 
 This project analyzes **6 years of transaction data (2016–2021)** from a global electronics retailer operating across multiple countries and currencies.
-
-Using **SQL (PostgreSQL)**, the analysis uncovers revenue trends, customer segmentation, product profitability, and store-level performance to support data-driven business decisions.
-
+ 
+Using **SQL (PostgreSQL)** and **Power BI**, the analysis uncovers revenue trends, customer segmentation, product profitability, and store-level performance to support data-driven business decisions.
+ 
 ---
-
+ 
 ## 📌 Business Problem
-
+ 
 Retail businesses need to understand which customers drive the most value, which products and categories are most profitable, and how revenue trends shift over time.
+ 
 This project aims to identify the key drivers of revenue and profit, and highlight where the business can improve.
-
+ 
 ---
-
+ 
 ## ❓ Key Business Questions Explored
-
+ 
 1. Which customers contribute the most to total revenue?
 2. How are customers segmented using RFM analysis?
 3. How does revenue change month-over-month and quarter-over-quarter?
@@ -26,13 +46,12 @@ This project aims to identify the key drivers of revenue and profit, and highlig
 5. How does new vs returning customer revenue change over time?
 6. Which age groups generate the most revenue per category?
 7. Which brands are underperforming in terms of profit?
-
 > ✨ *...and additional insights derived from 18+ SQL queries.*
-
+ 
 ---
-
+ 
 ## 📊 Dataset
-
+ 
 | Property | Details |
 |---|---|
 | Source | Global Electronics Retailer Dataset (Kaggle) |
@@ -42,39 +61,54 @@ This project aims to identify the key drivers of revenue and profit, and highlig
 | Total Customers | 15,256 |
 | Total Products | 2,517 |
 | Total Stores | 66 |
-
+ 
 ---
-
+ 
 ## 🛠️ Tools Used
-
+ 
 | Tool | Purpose |
 |---|---|
 | PostgreSQL | Data storage & SQL queries |
 | pgAdmin 4 | Query execution & output |
 | Python (Pandas) | Data cleaning & preprocessing |
-| Power BI | Dashboard visualization *(in progress)* |
-
+| Power BI | Interactive dashboard (3 pages) |
+ 
 ---
-
+ 
 ## 📁 Project Structure
-
+ 
 ```
-retail-sales-analysis/
+global_electronics_retailer/
 │
 ├── README.md
 │
-└── sql_queries/
-    ├── 01_data_exploration.sql
-    ├── 02_sales_analysis.sql
-    ├── 03_customer_analysis.sql
-    ├── 04_product_analysis.sql
-    └── 05_store_analysis.sql
+├── dataset/
+│   ├── Customers_clean.csv
+│   ├── ExchangeRates_clean.csv
+│   ├── Products_clean.csv
+│   ├── Sales_clean.csv
+│   └── stores_clean.csv
+│
+├── sql_queries/
+│   ├── data_overview.sql
+│   ├── sales_analysis.sql
+│   ├── customer_analysis.sql
+│   ├── product_analysis.sql
+│   └── store_analysis.sql
+│
+├── dashboard/
+│   └── Global_Electronics_Retailer.pbix
+│
+└── screenshots/
+    ├── page1_overview.png
+    ├── page2_customer_analysis.png
+    └── page3_product_performance.png
 ```
-
+ 
 ---
-
+ 
 ## 🔍 Key Findings
-
+ 
 - ⭐ **508 customers generate 20% of total revenue** — mostly based in the United States
 - 🎯 **Most customers fall into "At Risk" or "Needs Attention"** RFM segments — biggest opportunity for re-engagement
 - 💻 **Computers & Home Appliances** are the highest revenue-generating categories
@@ -83,40 +117,44 @@ retail-sales-analysis/
 - 📅 **Q4 was historically the strongest quarter (2016–2019)**, but in 2020 this shifted — Q1 became the highest and Q4 the lowest
 - 🔄 **Returning customers now drive more revenue than new customers** — a shift from earlier years
 - 🏷️ **One specific brand consistently ranks as the lowest-profit brand** across almost every category
-
 ---
-
+ 
 ## 💡 Business Recommendations
-
+ 
 1. **Offer free delivery to "At Risk" customers** based on their lifetime value, to encourage repeat purchases
 2. **Give first-time buyers a discount on their next order** to convert them into loyal customers
 3. **Promote high-margin categories** (Music/Movies, Cameras, TV/Video) more aggressively despite lower sales volume
 4. **Investigate the March–April revenue drop** by breaking it down into orders, conversion rate, and AOV, and checking seasonal/promotional factors
 5. **Re-evaluate the underperforming brand** identified across categories — consider renegotiating costs or discontinuing low-margin products
 6. **Adjust quarterly strategy for 2020 onward** based on the shift in seasonal demand (Q1 vs Q4)
-
 ---
-
+ 
+## 📸 Screenshots
+ 
+### 📊 Page 1 — Executive Overview
+![Overview](screenshots/page1_overview.png)
+ 
+### 👥 Page 2 — Customer Analysis
+![Customer Analysis](screenshots/page2_customer_analysis.png)
+ 
+### 📦 Page 3 — Product Performance
+![Product Performance](screenshots/page3_product_performance.png)
+ 
+---
+ 
 ## ▶️ How to Run
-
+ 
 1. Clone this repository
 2. Create a new database in PostgreSQL named `global_electronics`
 3. Create the 5 tables (`customers`, `products`, `stores`, `exchange_rates`, `sales`)
-4. Import the cleaned CSV files into their respective tables
-5. Run queries from `sql_queries/` folder in order (01 → 05)
-
+4. Import the cleaned CSV files from the `dataset/` folder into their respective tables
+5. Run queries from the `sql_queries/` folder
+6. Open `Global_Electronics_Retailer.pbix` in Power BI Desktop to explore the dashboard
 ---
-
-## 🚀 Next Steps
-
-- Build a 2-page Power BI dashboard (Overview + Deep Dive)
-- Add DAX measures for revenue, profit margin, and YoY growth
-
----
-
+ 
 ## 📬 Connect With Me
-
+ 
 **Rafat Khan** — Aspiring Data Analyst
-
+ 
 - 💼 LinkedIn: https://www.linkedin.com/in/rafat-khan-7215953a1/
 - 🐙 GitHub: https://github.com/Rafat-khan10
